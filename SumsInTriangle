@@ -1,0 +1,17 @@
+array=int(input())
+for i in range(array):
+    #This accepts no of rows to be there in an array
+    rows=int(input())
+    #we will solve this problem like a 2D array
+    l=[] 
+    for j in range(rows):
+        #to get rows of our 2D array
+        inp_row=list(map(int,input().split()))
+        l.append(inp_row)
+    #start from the n-1 row of array. As rows start from 0 so we are doing rows-2
+    for k in range(rows-2,-1,-1): 
+        #now along with row number as k we would check the next row
+        for m in range(k+1): 
+            #check the element in the below row and adjacent element and add whichever is the greatest to the element in the previous row
+            l[k][m] +=max(l[k+1][m],l[k+1][m+1]) 
+    print(l[0][0])
